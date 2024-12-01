@@ -149,6 +149,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     policy_name_list_bucket = 's3_list_bucket'
     policy_list_bucket = admin_aws_client.policies.get(policy_name_list_bucket)
     policy_list_bucket_name = f"{policy_name_list_bucket}-{uuid.uuid4()}"
+
     # add policy to pytest to remove it later
     pytest.test_data["policies"].append(policy_list_bucket_name)
     admin_aws_client.put_user_inline_policy(random_name, policy_list_bucket_name, policy_list_bucket)
