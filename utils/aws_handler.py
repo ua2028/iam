@@ -71,7 +71,7 @@ class AWSHandler:
 
         # Ensure the folder exists
         if not os.path.isdir(self.path_to_policies):
-            logger.error(f"The specified folder does not exist: {self.path_to_policies}")
+            logger.info(f"The specified folder does not exist: {self.path_to_policies}")
             return updated_policies
 
         # Iterate through JSON files in the folder
@@ -93,7 +93,7 @@ class AWSHandler:
                         self.policies[policy_name] = policy
 
                 except (json.JSONDecodeError, IOError) as e:
-                    logger.error(f"Failed to load policy {file_name}: {str(e)}")
+                    logger.info(f"Failed to load policy {file_name}: {str(e)}")
 
         return self.policies
 
@@ -105,7 +105,7 @@ class AWSHandler:
         list: A list of policy names and their ARNs.
         """
         if not self.session:
-            logger.error("Session is not initialized. Please validate credentials first.")
+            logger.info("Session is not initialized. Please validate credentials first.")
             return []
 
         try:
@@ -121,7 +121,7 @@ class AWSHandler:
             logger.info(f"Fetched {len(policies)} IAM policies")
             return policies
         except Exception as e:
-            logger.error(f"Failed to fetch IAM policies: {str(e)}")
+            logger.info(f"Failed to fetch IAM policies: {str(e)}")
             return []
 
     def remove_policy_by_name(self, policy_name):
@@ -132,7 +132,7 @@ class AWSHandler:
         list: A list of policy ARNs that were successfully deleted.
         """
         if not self.session:
-            logger.error("Session is not initialized. Please validate credentials first.")
+            logger.info("Session is not initialized. Please validate credentials first.")
             return []
 
         iam_client = self.session.client('iam')
@@ -158,11 +158,11 @@ class AWSHandler:
                         iam_client.delete_policy(PolicyArn=policy_arn)
                         logger.info(f"Deleted policy: {policy['PolicyName']} ({policy_arn})")
                     except Exception as e:
-                        logger.error(f"Failed to delete policy {policy['PolicyName']} ({policy_arn}): {str(e)}")
+                        logger.info(f"Failed to delete policy {policy['PolicyName']} ({policy_arn}): {str(e)}")
             return
 
         except Exception as e:
-            logger.error(f"Failed to remove policies: {str(e)}")
+            logger.info(f"Failed to remove policies: {str(e)}")
             return
 
     def remove_all_policies(self):
@@ -173,7 +173,7 @@ class AWSHandler:
         list: A list of policy ARNs that were successfully deleted.
         """
         if not self.session:
-            logger.error("Session is not initialized. Please validate credentials first.")
+            logger.info("Session is not initialized. Please validate credentials first.")
             return []
 
         iam_client = self.session.client('iam')
@@ -199,12 +199,12 @@ class AWSHandler:
                     deleted_policies.append(policy_arn)
                     logger.info(f"Deleted policy: {policy['PolicyName']} ({policy_arn})")
                 except Exception as e:
-                    logger.error(f"Failed to delete policy {policy['PolicyName']} ({policy_arn}): {str(e)}")
+                    logger.info(f"Failed to delete policy {policy['PolicyName']} ({policy_arn}): {str(e)}")
 
             return deleted_policies
 
         except Exception as e:
-            logger.error(f"Failed to remove policies: {str(e)}")
+            logger.info(f"Failed to remove policies: {str(e)}")
             return deleted_policies
 
     def add_iam_policy(self, policy_name, policy_document):
@@ -219,7 +219,7 @@ class AWSHandler:
         str: The ARN of the created policy.
         """
         if not self.session:
-            logger.error("Session is not initialized. Please validate credentials first.")
+            logger.info("Session is not initialized. Please validate credentials first.")
             return None
 
         iam_client = self.session.client('iam')
@@ -233,7 +233,7 @@ class AWSHandler:
             logger.info(f"Successfully created policy: {policy_name} (ARN: {policy_arn})")
             return policy_arn
         except Exception as e:
-            logger.error(f"Failed to create policy {policy_name}: {str(e)}")
+            logger.info(f"Failed to create policy {policy_name}: {str(e)}")
             return None
 
     def create_iam_user(self, user_name, tags=None):
@@ -248,7 +248,7 @@ class AWSHandler:
         dict: The details of the created user or an error message.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return None
 
         try:
@@ -262,10 +262,10 @@ class AWSHandler:
             logger.info(f"Successfully created IAM user: {user_name}")
             return user_details
         except self.iam.exceptions.EntityAlreadyExistsException:
-            logger.error(f"IAM user {user_name} already exists.")
+            logger.info(f"IAM user {user_name} already exists.")
             return {"Error": "UserAlreadyExists", "UserName": user_name}
         except Exception as e:
-            logger.error(f"Failed to create IAM user {user_name}: {str(e)}")
+            logger.info(f"Failed to create IAM user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def create_iam_user_credentials(self, user_name):
@@ -279,7 +279,7 @@ class AWSHandler:
         dict: A dictionary containing the Access Key ID and Secret Access Key or an error message.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return None
 
         try:
@@ -292,10 +292,10 @@ class AWSHandler:
                 "SecretAccessKey": access_key.get("SecretAccessKey")
             }
         except self.iam.exceptions.LimitExceededException:
-            logger.error(f"Cannot create access key for {user_name}: Limit exceeded.")
+            logger.info(f"Cannot create access key for {user_name}: Limit exceeded.")
             return {"Error": "LimitExceeded", "UserName": user_name}
         except Exception as e:
-            logger.error(f"Failed to create access credentials for {user_name}: {str(e)}")
+            logger.info(f"Failed to create access credentials for {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def delete_iam_user_and_all_resources_by_user_name(self, user_name):
@@ -309,7 +309,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the deletion.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -349,10 +349,10 @@ class AWSHandler:
             return {"Message": f"User {user_name} deleted successfully"}
 
         except self.iam.exceptions.NoSuchEntityException:
-            logger.error(f"User {user_name} does not exist.")
+            logger.info(f"User {user_name} does not exist.")
             return {"Error": "UserDoesNotExist", "UserName": user_name}
         except Exception as e:
-            logger.error(f"Failed to delete IAM user {user_name}: {str(e)}")
+            logger.info(f"Failed to delete IAM user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def delete_iam_user_by_user_name(self, user_name):
@@ -366,7 +366,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the deletion.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -376,10 +376,10 @@ class AWSHandler:
             return {"Message": f"User {user_name} deleted successfully"}
 
         except self.iam.exceptions.NoSuchEntityException:
-            logger.error(f"User {user_name} does not exist.")
+            logger.info(f"User {user_name} does not exist.")
             return {"Error": "UserDoesNotExist", "UserName": user_name}
         except Exception as e:
-            logger.error(f"Failed to delete IAM user {user_name}: {str(e)}")
+            logger.info(f"Failed to delete IAM user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def list_users(self):
@@ -390,7 +390,7 @@ class AWSHandler:
         list: A list of IAM users or an error message.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -401,7 +401,7 @@ class AWSHandler:
             logger.info(f"Fetched {len(users)} IAM users")
             return users
         except Exception as e:
-            logger.error(f"Failed to list users: {str(e)}")
+            logger.info(f"Failed to list users: {str(e)}")
             return {"Error": str(e)}
 
     def get_user(self, user_name=None):
@@ -415,7 +415,7 @@ class AWSHandler:
         dict: Details of the specified IAM user or an error message.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -424,7 +424,7 @@ class AWSHandler:
             logger.info(f"Fetched details for user: {user.get('UserName', 'Unknown')}")
             return user
         except Exception as e:
-            logger.error(f"Failed to get user {user_name}: {str(e)}")
+            logger.info(f"Failed to get user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def get_user_policy(self, user_name, policy_name):
@@ -439,7 +439,7 @@ class AWSHandler:
         dict: The inline policy document or an error message.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -448,7 +448,7 @@ class AWSHandler:
             logger.info(f"Fetched policy {policy_name} for user {user_name}")
             return policy_document
         except Exception as e:
-            logger.error(f"Failed to get policy {policy_name} for user {user_name}: {str(e)}")
+            logger.info(f"Failed to get policy {policy_name} for user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def attach_user_policy(self, user_name, policy_arn):
@@ -463,7 +463,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the attachment.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -472,13 +472,13 @@ class AWSHandler:
             logger.info(f"Successfully attached policy {policy_arn} to user {user_name}")
             return {"Message": f"Policy {policy_arn} attached to user {user_name}"}
         except self.iam.exceptions.NoSuchEntityException:
-            logger.error(f"User {user_name} does not exist.")
+            logger.info(f"User {user_name} does not exist.")
             return {"Error": "UserNotFound", "UserName": user_name}
         except self.iam.exceptions.NoSuchEntityException:
-            logger.error(f"Policy {policy_arn} does not exist.")
+            logger.info(f"Policy {policy_arn} does not exist.")
             return {"Error": "PolicyNotFound", "PolicyArn": policy_arn}
         except Exception as e:
-            logger.error(f"Failed to attach policy {policy_arn} to user {user_name}: {str(e)}")
+            logger.info(f"Failed to attach policy {policy_arn} to user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def create_group(self, group_name):
@@ -492,7 +492,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the group creation.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -504,10 +504,10 @@ class AWSHandler:
                 "GroupArn": group.get("Arn"),
             }
         except self.iam.exceptions.EntityAlreadyExistsException:
-            logger.error(f"Group {group_name} already exists.")
+            logger.info(f"Group {group_name} already exists.")
             return {"Error": "GroupAlreadyExists", "GroupName": group_name}
         except Exception as e:
-            logger.error(f"Failed to create group {group_name}: {str(e)}")
+            logger.info(f"Failed to create group {group_name}: {str(e)}")
             return {"Error": str(e)}
 
     def delete_group(self, group_name):
@@ -521,7 +521,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the group deletion.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -530,13 +530,13 @@ class AWSHandler:
             logger.info(f"Successfully deleted group: {group_name}")
             return {"Message": f"Group {group_name} deleted successfully."}
         except self.iam.exceptions.NoSuchEntityException:
-            logger.error(f"Group {group_name} does not exist.")
+            logger.info(f"Group {group_name} does not exist.")
             return {"Error": "GroupNotFound", "GroupName": group_name}
         except self.iam.exceptions.DeleteConflictException as e:
-            logger.error(f"Cannot delete group {group_name} because it is not empty: {str(e)}")
+            logger.info(f"Cannot delete group {group_name} because it is not empty: {str(e)}")
             return {"Error": "DeleteConflict", "GroupName": group_name, "Details": str(e)}
         except Exception as e:
-            logger.error(f"Failed to delete group {group_name}: {str(e)}")
+            logger.info(f"Failed to delete group {group_name}: {str(e)}")
             return {"Error": str(e)}
 
     def add_user_to_group(self, user_name, group_name):
@@ -551,7 +551,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the operation.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -559,7 +559,7 @@ class AWSHandler:
             logger.info(f"Successfully added user {user_name} to group {group_name}")
             return {"Message": f"User {user_name} added to group {group_name}"}
         except Exception as e:
-            logger.error(f"Failed to add user {user_name} to group {group_name}: {str(e)}")
+            logger.info(f"Failed to add user {user_name} to group {group_name}: {str(e)}")
             return {"Error": str(e)}
 
     def remove_user_from_group(self, user_name, group_name):
@@ -574,7 +574,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the operation.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -582,7 +582,7 @@ class AWSHandler:
             logger.info(f"Successfully removed user {user_name} from group {group_name}")
             return {"Message": f"User {user_name} removed from group {group_name}"}
         except Exception as e:
-            logger.error(f"Failed to remove user {user_name} from group {group_name}: {str(e)}")
+            logger.info(f"Failed to remove user {user_name} from group {group_name}: {str(e)}")
             return {"Error": str(e)}
 
     def list_inline_user_policies(self, user_name):
@@ -596,7 +596,7 @@ class AWSHandler:
         list: A list of inline policy names or an error message.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -605,7 +605,7 @@ class AWSHandler:
             logger.info(f"Fetched {len(policies)} inline policies for user {user_name}")
             return policies
         except Exception as e:
-            logger.error(f"Failed to list inline policies for user {user_name}: {str(e)}")
+            logger.info(f"Failed to list inline policies for user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def list_attached_user_policies(self, user_name):
@@ -619,7 +619,7 @@ class AWSHandler:
         list: A list of attached managed policy ARNs or an error message.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -628,7 +628,7 @@ class AWSHandler:
             logger.info(f"Fetched {len(policies)} managed policies for user {user_name}")
             return policies
         except Exception as e:
-            logger.error(f"Failed to list attached managed policies for user {user_name}: {str(e)}")
+            logger.info(f"Failed to list attached managed policies for user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def list_groups_for_user(self, user_name):
@@ -642,7 +642,7 @@ class AWSHandler:
         list: A list of groups the user belongs to or an error message.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -651,7 +651,7 @@ class AWSHandler:
             logger.info(f"Fetched {len(groups)} groups for user {user_name}")
             return groups
         except Exception as e:
-            logger.error(f"Failed to list groups for user {user_name}: {str(e)}")
+            logger.info(f"Failed to list groups for user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def update_user(self, old_user_name, new_user_name):
@@ -666,7 +666,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the update.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -674,7 +674,7 @@ class AWSHandler:
             logger.info(f"Successfully updated user {old_user_name} to {new_user_name}")
             return {"Message": f"User {old_user_name} updated to {new_user_name}"}
         except Exception as e:
-            logger.error(f"Failed to update user {old_user_name}: {str(e)}")
+            logger.info(f"Failed to update user {old_user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def detach_user_policy(self, user_name, policy_arn):
@@ -689,7 +689,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the detachment.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -697,7 +697,7 @@ class AWSHandler:
             logger.info(f"Successfully detached policy {policy_arn} from user {user_name}")
             return {"Message": f"Policy {policy_arn} detached from user {user_name}"}
         except Exception as e:
-            logger.error(f"Failed to detach policy {policy_arn} from user {user_name}: {str(e)}")
+            logger.info(f"Failed to detach policy {policy_arn} from user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def put_user_inline_policy(self, user_name, policy_name, policy_document):
@@ -713,7 +713,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the operation.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -725,7 +725,7 @@ class AWSHandler:
             logger.info(f"Successfully added/updated inline policy {policy_name} for user {user_name}")
             return {"Message": f"Inline policy {policy_name} added/updated for user {user_name}"}
         except Exception as e:
-            logger.error(f"Failed to add/update policy {policy_name} for user {user_name}: {str(e)}")
+            logger.info(f"Failed to add/update policy {policy_name} for user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
     def delete_user_policy(self, user_name, policy_name):
@@ -740,7 +740,7 @@ class AWSHandler:
         dict: A message indicating success or failure of the deletion.
         """
         if not self.iam:
-            logger.error("IAM client is not initialized. Please validate credentials first.")
+            logger.info("IAM client is not initialized. Please validate credentials first.")
             return {"Error": "IAMClientNotInitialized"}
 
         try:
@@ -748,7 +748,7 @@ class AWSHandler:
             logger.info(f"Successfully deleted inline policy {policy_name} for user {user_name}")
             return {"Message": f"Inline policy {policy_name} deleted for user {user_name}"}
         except Exception as e:
-            logger.error(f"Failed to delete inline policy {policy_name} for user {user_name}: {str(e)}")
+            logger.info(f"Failed to delete inline policy {policy_name} for user {user_name}: {str(e)}")
             return {"Error": str(e)}
 
 

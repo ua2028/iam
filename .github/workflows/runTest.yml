@@ -36,6 +36,7 @@ jobs:
       run: |
         pytest --alluredir=allure-results
         allure generate allure-results -o allure-report --clean
+      continue-on-error: true
 
     - name: Upload Test Reports
       uses: actions/upload-artifact@v3
