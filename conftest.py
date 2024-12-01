@@ -32,7 +32,11 @@ def user_aws_client(request):
     pytest.test_data['users'].append(test_user_name)
     admin_aws_handler.create_iam_user(test_user_name)
     credentials = admin_aws_handler.create_iam_user_credentials(test_user_name)
-    aws_handler = AWSHandler(credentials["AccessKeyId"], credentials["SecretAccessKey"], True )
+    access_key = credentials["AccessKeyId"]
+    secret_key = credentials["SecretAccessKey"]
+    logger.info(f"---------------------- access_key: {access_key}")
+    logger.info(f"---------------------- secret_key: {secret_key}")
+    aws_handler = AWSHandler(access_key, secret_key, True )
     aws_handler.name = test_user_name
     # adding sleep because of flaky issue of getting from AWS error of invalid token when starting
     # actions in the test

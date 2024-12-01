@@ -1,17 +1,20 @@
 import os
 import json
 import boto3
+from time import sleep
 from loguru import logger
-from botocore.exceptions import NoCredentialsError
 from dotenv import load_dotenv
+from botocore.exceptions import NoCredentialsError
 load_dotenv()
 
 
 class AWSHandler:
     def __init__(self, aws_access_key=False, aws_secret_key=False, auto_login=False):
         if not aws_access_key:
+            logger.info("No aws_access_key, checking from ENV")
             aws_access_key = os.getenv("AWS_ACCESS_KEY_ID")
         if not aws_secret_key:
+            logger.info("No aws_secret_key, checking from ENV")
             aws_secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
         self.aws_access_key_id = aws_access_key
         self.aws_secret_access_key = aws_secret_key
@@ -27,7 +30,7 @@ class AWSHandler:
 
     def validate_credentials(self):
         logger.info("Validate AWS credentials")
-
+        sleep(0.1)
         try:
             # Check if access keys are available in environment variables
             if self.aws_access_key_id and self.aws_secret_access_key:
@@ -248,6 +251,8 @@ class AWSHandler:
         Returns:
         dict: The details of the created user or an error message.
         """
+        sleep(0.1)
+
         if not self.iam:
             logger.info("IAM client is not initialized. Please validate credentials first.")
             return None
