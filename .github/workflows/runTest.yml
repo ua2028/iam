@@ -37,14 +37,6 @@ jobs:
         pytest -s --html=report.html
       continue-on-error: true
 
-    - name: Upload Test Reports
-      uses: actions/upload-artifact@v3
-      with:
-        name: report
-        path: |
-          report.html
-          assets/style.css
-
     - name: Create "public" folder and move files
       run: |
         mkdir -p public
@@ -88,3 +80,11 @@ jobs:
         pwd
         echo "Listing all files and directories:"
         ls -al
+
+    - name: Upload Test Reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: report
+        path: |
+          public2/report.html
+          public2/assets/style.css
