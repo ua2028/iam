@@ -28,7 +28,6 @@ class AWSHandler:
     def validate_credentials(self):
         logger.info("Validate AWS credentials")
 
-
         try:
             # Check if access keys are available in environment variables
             if self.aws_access_key_id and self.aws_secret_access_key:
