@@ -60,6 +60,5 @@ RUN pip install -r requirements.txt
 RUN mkdir -p /app/allure-results /app/allure-report
 
 # Set default command to run pytest and generate Allure report
-CMD pytest -s --alluredir=allure-results && \
-    allure generate allure-results -o allure-report --clean && \
-    echo "Allure report generated in /app/allure-report"
+CMD pytest -s --html=report.html && \
+    echo "report was generated in report.html"

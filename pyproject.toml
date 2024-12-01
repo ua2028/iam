@@ -19,6 +19,7 @@ allure-pytest = "^2.13.5"
 pytest-json-report = "^1.5.0"
 docker = "^7.1.0"
 argcomplete = "^3.5.1"
+pytest-html = "^4.1.1"
 
 
 [build-system]

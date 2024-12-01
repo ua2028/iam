@@ -1,9 +1,12 @@
 import uuid
 import pytest
 from time import sleep
-from loguru import logger
 from utils.aws_handler import AWSHandler
 
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def test_limiting_policy(admin_aws_client, user_aws_client):
     logger.info("Test limiting user by IAM policy")

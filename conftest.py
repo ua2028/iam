@@ -5,9 +5,13 @@ import uuid
 import shutil
 import pytest
 from time import sleep
-from loguru import logger
 from dotenv import load_dotenv
 load_dotenv()
+
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 from utils.aws_handler import AWSHandler
 

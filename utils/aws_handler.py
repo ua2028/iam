@@ -2,11 +2,14 @@ import os
 import json
 import boto3
 from time import sleep
-from loguru import logger
 from dotenv import load_dotenv
 from botocore.exceptions import NoCredentialsError
 load_dotenv()
 
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class AWSHandler:
     def __init__(self, name="ADMIN", aws_access_key=False, aws_secret_key=False, auto_login=False):
@@ -251,7 +254,6 @@ class AWSHandler:
         Returns:
         dict: The details of the created user or an error message.
         """
-        sleep(10.1)
 
         if not self.iam:
             logger.info(f"name: {self.name}, IAM client is not initialized. Please validate credentials first.")
