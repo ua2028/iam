@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title id="head-title">report.html</title>
+      <link href="assets/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <h1 id="title">report.html</h1>
+    <p>Report generated on 01-Dec-2024 at 18:30:11 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+        v4.1.1</p>
+    <div id="environment-header">
+      <h2>Environment</h2>
+    </div>
+    <table id="environment"></table>
+    <!-- TEMPLATES -->
+      <template id="template_environment_row">
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+    <template id="template_results-table__body--empty">
+      <tbody class="results-table-row">
+        <tr id="not-found-message">
+          <td colspan="4">No results found. Check the filters.</th>
+        </tr>
+    </template>
+    <template id="template_results-table__tbody">
+      <tbody class="results-table-row">
+        <tr class="collapsible">
+        </tr>
+        <tr class="extras-row">
+          <td class="extra" colspan="4">
+            <div class="extraHTML"></div>
+            <div class="media">
+              <div class="media-container">
+                  <div class="media-container__nav--left"><</div>
+                  <div class="media-container__viewport">
+                    <img src="" />
+                    <video controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="media-container__nav--right">></div>
+                </div>
+                <div class="media__name"></div>
+                <div class="media__counter"></div>
+            </div>
+            <div class="logwrapper">
+              <div class="logexpander"></div>
+              <div class="log"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </template>
+    <!-- END TEMPLATES -->
+    <div class="summary">
+      <div class="summary__data">
+        <h2>Summary</h2>
+        <div class="additional-summary prefix">
+        </div>
+        <p class="run-count">1 test took 00:00:31.</p>
+        <p class="filter">(Un)check the boxes to filter the results.</p>
+        <div class="summary__reload">
+          <div class="summary__reload__button hidden" onclick="location.reload()">
+            <div>There are still tests running. <br />Reload this page to get the latest results!</div>
+          </div>
+        </div>
+        <div class="summary__spacer"></div>
+        <div class="controls">
+          <div class="filters">
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="failed" disabled/>
+            <span class="failed">0 Failed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" />
+            <span class="passed">1 Passed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="skipped" disabled/>
+            <span class="skipped">0 Skipped,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xfailed" disabled/>
+            <span class="xfailed">0 Expected failures,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xpassed" disabled/>
+            <span class="xpassed">0 Unexpected passes,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="error" disabled/>
+            <span class="error">0 Errors,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="rerun" disabled/>
+            <span class="rerun">0 Reruns</span>
+          </div>
+          <div class="collapse">
+            <button id="show_all_details">Show all details</button>&nbsp;/&nbsp;<button id="hide_all_details">Hide all details</button>
+          </div>
+        </div>
+      </div>
+      <div class="additional-summary summary">
+      </div>
+      <div class="additional-summary postfix">
+      </div>
+    </div>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable" data-column-type="result">Result</th>
+          <th class="sortable" data-column-type="testId">Test</th>
+          <th class="sortable" data-column-type="duration">Duration</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+    </table>
+  </body>
+  <footer>
+    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.11.10&#34;, &#34;Platform&#34;: &#34;Linux-6.5.0-1025-azure-x86_64-with-glibc2.35&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;8.3.3&#34;, &#34;pluggy&#34;: &#34;1.5.0&#34;}, &#34;Plugins&#34;: {&#34;metadata&#34;: &#34;3.1.1&#34;, &#34;html&#34;: &#34;4.1.1&#34;, &#34;allure-pytest&#34;: &#34;2.13.5&#34;, &#34;json-report&#34;: &#34;1.5.0&#34;}, &#34;CI&#34;: &#34;true&#34;, &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/temurin-11-jdk-amd64&#34;}, &#34;tests&#34;: {&#34;tests/AWS/test_aws_policies.py::test_limiting_policy&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/AWS/test_aws_policies.py::test_limiting_policy&#34;, &#34;duration&#34;: &#34;00:00:31&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/AWS/test_aws_policies.py::test_limiting_policy&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:31&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;------------------------------ Captured log setup ------------------------------\nINFO     iam.conftest:conftest.py:64 !!!!!!!!! Do setup here if needed !!!!!!!!!\nINFO     iam.conftest:conftest.py:34 Create a test user\nINFO     utils.aws_handler:aws_handler.py:271 name: ADMIN, Successfully created IAM user: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79\nINFO     utils.aws_handler:aws_handler.py:298 name: ADMIN, Successfully created access credentials for user: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79\nINFO     iam.conftest:conftest.py:41 ---------------------- access_key: AKIA4MTWNEDAZ5UQ6OXA\nINFO     iam.conftest:conftest.py:42 ---------------------- secret_key: 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\nINFO     utils.aws_handler:aws_handler.py:36 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Validate AWS credentials\nINFO     utils.aws_handler:aws_handler.py:41 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, self.aws_access_key_id: AKIA4MTWNEDAZ5UQ6OXA\nINFO     utils.aws_handler:aws_handler.py:42 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, self.aws_secret_access_key: HLYHpH2JmxXh9HTaOIpwJPlLZzULs2akiFGgdCCW\nINFO     utils.aws_handler:aws_handler.py:43 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, AWS credentials found.\nINFO     utils.aws_handler:aws_handler.py:48 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Set boto session with acces ey and secret key is done\nINFO     utils.aws_handler:aws_handler.py:92 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, policy_name: s3_list_bucket\nINFO     utils.aws_handler:aws_handler.py:98 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Loaded policy from s3_list_bucket.json\nINFO     utils.aws_handler:aws_handler.py:92 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, policy_name: limit_to_read_only_iam_policy\nINFO     utils.aws_handler:aws_handler.py:98 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Loaded policy from limit_to_read_only_iam_policy.json\n\n------------------------------ Captured log call -------------------------------\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:12 Test limiting user by IAM policy\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:14 Create a group\nINFO     utils.aws_handler:aws_handler.py:514 name: ADMIN, Successfully created group: group_name-cb468aac-46f4-47e7-96bd-b885e76a3feb\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:19 Creating policy with name containing random uuid\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:26 Add the policy to AWS\nINFO     utils.aws_handler:aws_handler.py:241 name: ADMIN, Successfully created policy: limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4 (ARN: arn:aws:iam::851725590721:policy/limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4)\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:29 Policy created successfully: arn:aws:iam::851725590721:policy/limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:31 Validate the policy is listed in the account\nINFO     utils.aws_handler:aws_handler.py:129 name: ADMIN, Fetched 4 IAM policies\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:36 Add policy to test user\nINFO     utils.aws_handler:aws_handler.py:485 name: ADMIN, Successfully attached policy arn:aws:iam::851725590721:policy/limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4 to user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:39 Validate the policy is listed in the user\nINFO     utils.aws_handler:aws_handler.py:641 name: ADMIN, Fetched 1 managed policies for user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:45 Try to create a user\nINFO     utils.aws_handler:aws_handler.py:277 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Failed to create IAM user lolz: An error occurred (AccessDenied) when calling the CreateUser operation: User: arn:aws:iam::851725590721:user/user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 is not authorized to perform: iam:CreateUser on resource: arn:aws:iam::851725590721:user/lolz because no identity-based policy allows the iam:CreateUser action\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:48 Assert user is not allowed to create new user\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:53 Try to delete a user\nINFO     utils.aws_handler:aws_handler.py:271 name: ADMIN, Successfully created IAM user: delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f\nINFO     utils.aws_handler:aws_handler.py:395 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Failed to delete IAM user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f: An error occurred (AccessDenied) when calling the DeleteUser operation: User: arn:aws:iam::851725590721:user/user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 is not authorized to perform: iam:DeleteUser on resource: user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f because no identity-based policy allows the iam:DeleteUser action\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:62 Assert user is not allowed to delete user\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:67 Try to update a user\nINFO     utils.aws_handler:aws_handler.py:690 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Failed to update user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f: An error occurred (AccessDenied) when calling the UpdateUser operation: User: arn:aws:iam::851725590721:user/user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 is not authorized to perform: iam:UpdateUser on resource: user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f because no identity-based policy allows the iam:UpdateUser action\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:70 Assert user is not allowed to update user \nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:75 Try to attach a policy a user\nINFO     utils.aws_handler:aws_handler.py:494 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Failed to attach policy arn:aws:iam::851725590721:policy/limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4 to user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f: An error occurred (AccessDenied) when calling the AttachUserPolicy operation: User: arn:aws:iam::851725590721:user/user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 is not authorized to perform: iam:AttachUserPolicy on resource: user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f because no identity-based policy allows the iam:AttachUserPolicy action\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:78 Assert user is not allowed to attach a policy to user\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:83 Try to detach a policy from a user\nINFO     utils.aws_handler:aws_handler.py:713 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Failed to detach policy arn:aws:iam::851725590721:policy/limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4 from user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79: An error occurred (AccessDenied) when calling the DetachUserPolicy operation: User: arn:aws:iam::851725590721:user/user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 is not authorized to perform: iam:DetachUserPolicy on resource: user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 because no identity-based policy allows the iam:DetachUserPolicy action\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:86 Assert user is not allowed to detach user policy\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:91 Try to put user policy\nINFO     utils.aws_handler:aws_handler.py:741 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Failed to add/update policy limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4 for user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79: An error occurred (AccessDenied) when calling the PutUserPolicy operation: User: arn:aws:iam::851725590721:user/user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 is not authorized to perform: iam:PutUserPolicy on resource: user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 because no identity-based policy allows the iam:PutUserPolicy action\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:94 Assert user is not allowed to put user policy\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:99 Try to delete user policy\nINFO     utils.aws_handler:aws_handler.py:764 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Failed to delete inline policy limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4 for user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79: An error occurred (AccessDenied) when calling the DeleteUserPolicy operation: User: arn:aws:iam::851725590721:user/user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 is not authorized to perform: iam:DeleteUserPolicy on resource: user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 because no identity-based policy allows the iam:DeleteUserPolicy action\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:102 Assert user is not allowed to delete user policy\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:107 Try to add user to group\nINFO     utils.aws_handler:aws_handler.py:575 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Failed to add user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f to group group_name-cb468aac-46f4-47e7-96bd-b885e76a3feb: An error occurred (AccessDenied) when calling the AddUserToGroup operation: User: arn:aws:iam::851725590721:user/user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 is not authorized to perform: iam:AddUserToGroup on resource: group group_name-cb468aac-46f4-47e7-96bd-b885e76a3feb because no identity-based policy allows the iam:AddUserToGroup action\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:110 Assert user is not allowed to add a user to a group\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:115 Add user to group\nINFO     utils.aws_handler:aws_handler.py:572 name: ADMIN, Successfully added user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f to group group_name-cb468aac-46f4-47e7-96bd-b885e76a3feb\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:118 Try to remove user from a group\nINFO     utils.aws_handler:aws_handler.py:598 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Failed to remove user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f from group group_name-cb468aac-46f4-47e7-96bd-b885e76a3feb: An error occurred (AccessDenied) when calling the RemoveUserFromGroup operation: User: arn:aws:iam::851725590721:user/user-test-8e873638-9b40-4cfe-a802-42dac84d5b79 is not authorized to perform: iam:RemoveUserFromGroup on resource: group group_name-cb468aac-46f4-47e7-96bd-b885e76a3feb because no identity-based policy allows the iam:RemoveUserFromGroup action\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:121 Assert user is not allowed to remove a user from a group\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:132 Try to list users\nINFO     utils.aws_handler:aws_handler.py:414 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Fetched 7 IAM users\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:135 Assert user is allowed to list users\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:139 Try to get user\nINFO     utils.aws_handler:aws_handler.py:437 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Fetched details for user: delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:142 Assert user is allowed to get user\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:148 Create an inline policy for user\nINFO     utils.aws_handler:aws_handler.py:738 name: ADMIN, Successfully added/updated inline policy s3_list_bucket-d742f8aa-de9e-445f-9cbd-898435973c34 for user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:158 Try to get user attached policy\nINFO     utils.aws_handler:aws_handler.py:461 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Fetched policy s3_list_bucket-d742f8aa-de9e-445f-9cbd-898435973c34 for user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:160 Assert user is allowed to get user policy\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:163 Try to get user attached policies\nINFO     utils.aws_handler:aws_handler.py:641 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Fetched 1 managed policies for user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:167 Assert returned attached policies\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:171 Try to get user inline policies\nINFO     utils.aws_handler:aws_handler.py:618 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Fetched 1 inline policies for user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:174 Assert policy name was returned\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:177 Try to get user groups\nINFO     utils.aws_handler:aws_handler.py:664 name: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79, Fetched 1 groups for user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:180 Assert group name is correct\nINFO     iam.tests.AWS.test_aws_policies:test_aws_policies.py:183 end of test\n\n---------------------------- Captured log teardown -----------------------------\nINFO     iam.conftest:conftest.py:68 ****************************************************************************\nINFO     iam.conftest:conftest.py:69 ****************************************************************************\nINFO     iam.conftest:conftest.py:70 *************************  END OF TEST SESSION  ****************************\nINFO     iam.conftest:conftest.py:71 ****************************************************************************\nINFO     iam.conftest:conftest.py:72 ****************************************************************************\nINFO     iam.conftest:conftest.py:73 Perform teardown actions after all tests are done\nINFO     iam.conftest:conftest.py:75 users to delete: [&amp;#x27;user-test-8e873638-9b40-4cfe-a802-42dac84d5b79&amp;#x27;, &amp;#x27;delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f&amp;#x27;]\nINFO     iam.conftest:conftest.py:78 Found a test user name &amp;#x27;user-test-8e873638-9b40-4cfe-a802-42dac84d5b79&amp;#x27;, deleting it\nINFO     utils.aws_handler:aws_handler.py:349 name: ADMIN, Detached managed policy arn:aws:iam::851725590721:policy/limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4 from user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79\nINFO     utils.aws_handler:aws_handler.py:357 name: ADMIN, Deleted access key AKIA4MTWNEDAZ5UQ6OXA for user user-test-8e873638-9b40-4cfe-a802-42dac84d5b79\nINFO     utils.aws_handler:aws_handler.py:361 name: ADMIN, Successfully deleted IAM user: user-test-8e873638-9b40-4cfe-a802-42dac84d5b79\nINFO     iam.conftest:conftest.py:78 Found a test user name &amp;#x27;delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f&amp;#x27;, deleting it\nINFO     utils.aws_handler:aws_handler.py:335 name: ADMIN, Removed user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f from group group_name-cb468aac-46f4-47e7-96bd-b885e76a3feb\nINFO     utils.aws_handler:aws_handler.py:341 name: ADMIN, Deleted inline policy s3_list_bucket-d742f8aa-de9e-445f-9cbd-898435973c34 from user delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f\nINFO     utils.aws_handler:aws_handler.py:361 name: ADMIN, Successfully deleted IAM user: delete_user-804a453d-b283-4c5f-b363-16cc48dc1c9f\nINFO     iam.conftest:conftest.py:82 Policies to delete: [&amp;#x27;limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4&amp;#x27;, &amp;#x27;s3_list_bucket-d742f8aa-de9e-445f-9cbd-898435973c34&amp;#x27;]\nINFO     iam.conftest:conftest.py:85 Found a test policy &amp;#x27;limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4&amp;#x27;, deleting it\nINFO     utils.aws_handler:aws_handler.py:129 name: ADMIN, Fetched 4 IAM policies\nINFO     utils.aws_handler:aws_handler.py:167 name: ADMIN, Deleted policy: limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4 (arn:aws:iam::851725590721:policy/limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4)\nINFO     iam.conftest:conftest.py:85 Found a test policy &amp;#x27;s3_list_bucket-d742f8aa-de9e-445f-9cbd-898435973c34&amp;#x27;, deleting it\nINFO     utils.aws_handler:aws_handler.py:129 name: ADMIN, Fetched 3 IAM policies\nINFO     iam.conftest:conftest.py:90 Policies to delete: [&amp;#x27;limit_to_read_only_iam_policy-dddb6df0-f67d-4599-91dd-ff63f64497e4&amp;#x27;, &amp;#x27;s3_list_bucket-d742f8aa-de9e-445f-9cbd-898435973c34&amp;#x27;]\nINFO     iam.conftest:conftest.py:93 Found a group with name: &amp;#x27;group_name-cb468aac-46f4-47e7-96bd-b885e76a3feb&amp;#x27;, deleting it\nINFO     utils.aws_handler:aws_handler.py:543 name: ADMIN, Successfully deleted group: group_name-cb468aac-46f4-47e7-96bd-b885e76a3feb&#34;}]}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;report.html&#34;}"></div>
+    <script>
+      (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const { getCollapsedCategory, setCollapsedIds } = require('./storage.js')
+
+class DataManager {
+    setManager(data) {
+        const collapsedCategories = [...getCollapsedCategory(data.renderCollapsed)]
+        const collapsedIds = []
+        const tests = Object.values(data.tests).flat().map((test, index) => {
+            const collapsed = collapsedCategories.includes(test.result.toLowerCase())
+            const id = `test_${index}`
+            if (collapsed) {
+                collapsedIds.push(id)
+            }
+            return {
+                ...test,
+                id,
+                collapsed,
+            }
+        })
+        const dataBlob = { ...data, tests }
+        this.data = { ...dataBlob }
+        this.renderData = { ...dataBlob }
+        setCollapsedIds(collapsedIds)
+    }
+
+    get allData() {
+        return { ...this.data }
+    }
+
+    resetRender() {
+        this.renderData = { ...this.data }
+    }
+
+    setRender(data) {
+        this.renderData.tests = [...data]
+    }
+
+    toggleCollapsedItem(id) {
+        this.renderData.tests = this.renderData.tests.map((test) =>
+            test.id === id ? { ...test, collapsed: !test.collapsed } : test,
+        )
+    }
+
+    set allCollapsed(collapsed) {
+        this.renderData = { ...this.renderData, tests: [...this.renderData.tests.map((test) => (
+            { ...test, collapsed }
+        ))] }
+    }
+
+    get testSubset() {
+        return [...this.renderData.tests]
+    }
+
+    get environment() {
+        return this.renderData.environment
+    }
+
+    get initialSort() {
+        return this.data.initialSort
+    }
+}
+
+module.exports = {
+    manager: new DataManager(),
+}
+
+},{"./storage.js":8}],2:[function(require,module,exports){
+const mediaViewer = require('./mediaviewer.js')
+const templateEnvRow = document.getElementById('template_environment_row')
+const templateResult = document.getElementById('template_results-table__tbody')
+
+function htmlToElements(html) {
+    const temp = document.createElement('template')
+    temp.innerHTML = html
+    return temp.content.childNodes
+}
+
+const find = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return elem.querySelector(selector)
+}
+
+const findAll = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return [...elem.querySelectorAll(selector)]
+}
+
+const dom = {
+    getStaticRow: (key, value) => {
+        const envRow = templateEnvRow.content.cloneNode(true)
+        const isObj = typeof value === 'object' && value !== null
+        const values = isObj ? Object.keys(value).map((k) => `${k}: ${value[k]}`) : null
+
+        const valuesElement = htmlToElements(
+            values ? `<ul>${values.map((val) => `<li>${val}</li>`).join('')}<ul>` : `<div>${value}</div>`)[0]
+        const td = findAll('td', envRow)
+        td[0].textContent = key
+        td[1].appendChild(valuesElement)
+
+        return envRow
+    },
+    getResultTBody: ({ testId, id, log, extras, resultsTableRow, tableHtml, result, collapsed }) => {
+        const resultBody = templateResult.content.cloneNode(true)
+        resultBody.querySelector('tbody').classList.add(result.toLowerCase())
+        resultBody.querySelector('tbody').id = testId
+        resultBody.querySelector('.collapsible').dataset.id = id
+
+        resultsTableRow.forEach((html) => {
+            const t = document.createElement('template')
+            t.innerHTML = html
+            resultBody.querySelector('.collapsible').appendChild(t.content)
+        })
+
+        if (log) {
+            // Wrap lines starting with "E" with span.error to color those lines red
+            const wrappedLog = log.replace(/^E.*$/gm, (match) => `<span class="error">${match}</span>`)
+            resultBody.querySelector('.log').innerHTML = wrappedLog
+        } else {
+            resultBody.querySelector('.log').remove()
+        }
+
+        if (collapsed) {
+            resultBody.querySelector('.collapsible > td')?.classList.add('collapsed')
+            resultBody.querySelector('.extras-row').classList.add('hidden')
+        } else {
+            resultBody.querySelector('.collapsible > td')?.classList.remove('collapsed')
+        }
+
+        const media = []
+        extras?.forEach(({ name, format_type, content }) => {
+            if (['image', 'video'].includes(format_type)) {
+                media.push({ path: content, name, format_type })
+            }
+
+            if (format_type === 'html') {
+                resultBody.querySelector('.extraHTML').insertAdjacentHTML('beforeend', `<div>${content}</div>`)
+            }
+        })
+        mediaViewer.setup(resultBody, media)
+
+        // Add custom html from the pytest_html_results_table_html hook
+        tableHtml?.forEach((item) => {
+            resultBody.querySelector('td[class="extra"]').insertAdjacentHTML('beforeend', item)
+        })
+
+        return resultBody
+    },
+}
+
+module.exports = {
+    dom,
+    htmlToElements,
+    find,
+    findAll,
+}
+
+},{"./mediaviewer.js":6}],3:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const storageModule = require('./storage.js')
+
+const getFilteredSubSet = (filter) =>
+    manager.allData.tests.filter(({ result }) => filter.includes(result.toLowerCase()))
+
+const doInitFilter = () => {
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+}
+
+const doFilter = (type, show) => {
+    if (show) {
+        storageModule.showCategory(type)
+    } else {
+        storageModule.hideCategory(type)
+    }
+
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+
+    const sortColumn = storageModule.getSort()
+    doSort(sortColumn, true)
+}
+
+module.exports = {
+    doFilter,
+    doInitFilter,
+}
+
+},{"./datamanager.js":1,"./sort.js":7,"./storage.js":8}],4:[function(require,module,exports){
+const { redraw, bindEvents, renderStatic } = require('./main.js')
+const { doInitFilter } = require('./filter.js')
+const { doInitSort } = require('./sort.js')
+const { manager } = require('./datamanager.js')
+const data = JSON.parse(document.getElementById('data-container').dataset.jsonblob)
+
+function init() {
+    manager.setManager(data)
+    doInitFilter()
+    doInitSort()
+    renderStatic()
+    redraw()
+    bindEvents()
+}
+
+init()
+
+},{"./datamanager.js":1,"./filter.js":3,"./main.js":5,"./sort.js":7}],5:[function(require,module,exports){
+const { dom, find, findAll } = require('./dom.js')
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const { doFilter } = require('./filter.js')
+const {
+    getVisible,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    getSortDirection,
+    possibleFilters,
+} = require('./storage.js')
+
+const removeChildren = (node) => {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild)
+    }
+}
+
+const renderStatic = () => {
+    const renderEnvironmentTable = () => {
+        const environment = manager.environment
+        const rows = Object.keys(environment).map((key) => dom.getStaticRow(key, environment[key]))
+        const table = document.getElementById('environment')
+        removeChildren(table)
+        rows.forEach((row) => table.appendChild(row))
+    }
+    renderEnvironmentTable()
+}
+
+const addItemToggleListener = (elem) => {
+    elem.addEventListener('click', ({ target }) => {
+        const id = target.parentElement.dataset.id
+        manager.toggleCollapsedItem(id)
+
+        const collapsedIds = getCollapsedIds()
+        if (collapsedIds.includes(id)) {
+            const updated = collapsedIds.filter((item) => item !== id)
+            setCollapsedIds(updated)
+        } else {
+            collapsedIds.push(id)
+            setCollapsedIds(collapsedIds)
+        }
+        redraw()
+    })
+}
+
+const renderContent = (tests) => {
+    const sortAttr = getSort(manager.initialSort)
+    const sortAsc = JSON.parse(getSortDirection())
+    const rows = tests.map(dom.getResultTBody)
+    const table = document.getElementById('results-table')
+    const tableHeader = document.getElementById('results-table-head')
+
+    const newTable = document.createElement('table')
+    newTable.id = 'results-table'
+
+    // remove all sorting classes and set the relevant
+    findAll('.sortable', tableHeader).forEach((elem) => elem.classList.remove('asc', 'desc'))
+    tableHeader.querySelector(`.sortable[data-column-type="${sortAttr}"]`)?.classList.add(sortAsc ? 'desc' : 'asc')
+    newTable.appendChild(tableHeader)
+
+    if (!rows.length) {
+        const emptyTable = document.getElementById('template_results-table__body--empty').content.cloneNode(true)
+        newTable.appendChild(emptyTable)
+    } else {
+        rows.forEach((row) => {
+            if (!!row) {
+                findAll('.collapsible td:not(.col-links', row).forEach(addItemToggleListener)
+                find('.logexpander', row).addEventListener('click',
+                    (evt) => evt.target.parentNode.classList.toggle('expanded'),
+                )
+                newTable.appendChild(row)
+            }
+        })
+    }
+
+    table.replaceWith(newTable)
+}
+
+const renderDerived = () => {
+    const currentFilter = getVisible()
+    possibleFilters.forEach((result) => {
+        const input = document.querySelector(`input[data-test-result="${result}"]`)
+        input.checked = currentFilter.includes(result)
+    })
+}
+
+const bindEvents = () => {
+    const filterColumn = (evt) => {
+        const { target: element } = evt
+        const { testResult } = element.dataset
+
+        doFilter(testResult, element.checked)
+        const collapsedIds = getCollapsedIds()
+        const updated = manager.renderData.tests.map((test) => {
+            return {
+                ...test,
+                collapsed: collapsedIds.includes(test.id),
+            }
+        })
+        manager.setRender(updated)
+        redraw()
+    }
+
+    const header = document.getElementById('environment-header')
+    header.addEventListener('click', () => {
+        const table = document.getElementById('environment')
+        table.classList.toggle('hidden')
+        header.classList.toggle('collapsed')
+    })
+
+    findAll('input[name="filter_checkbox"]').forEach((elem) => {
+        elem.addEventListener('click', filterColumn)
+    })
+
+    findAll('.sortable').forEach((elem) => {
+        elem.addEventListener('click', (evt) => {
+            const { target: element } = evt
+            const { columnType } = element.dataset
+            doSort(columnType)
+            redraw()
+        })
+    })
+
+    document.getElementById('show_all_details').addEventListener('click', () => {
+        manager.allCollapsed = false
+        setCollapsedIds([])
+        redraw()
+    })
+    document.getElementById('hide_all_details').addEventListener('click', () => {
+        manager.allCollapsed = true
+        const allIds = manager.renderData.tests.map((test) => test.id)
+        setCollapsedIds(allIds)
+        redraw()
+    })
+}
+
+const redraw = () => {
+    const { testSubset } = manager
+
+    renderContent(testSubset)
+    renderDerived()
+}
+
+module.exports = {
+    redraw,
+    bindEvents,
+    renderStatic,
+}
+
+},{"./datamanager.js":1,"./dom.js":2,"./filter.js":3,"./sort.js":7,"./storage.js":8}],6:[function(require,module,exports){
+class MediaViewer {
+    constructor(assets) {
+        this.assets = assets
+        this.index = 0
+    }
+
+    nextActive() {
+        this.index = this.index === this.assets.length - 1 ? 0 : this.index + 1
+        return [this.activeFile, this.index]
+    }
+
+    prevActive() {
+        this.index = this.index === 0 ? this.assets.length - 1 : this.index -1
+        return [this.activeFile, this.index]
+    }
+
+    get currentIndex() {
+        return this.index
+    }
+
+    get activeFile() {
+        return this.assets[this.index]
+    }
+}
+
+
+const setup = (resultBody, assets) => {
+    if (!assets.length) {
+        resultBody.querySelector('.media').classList.add('hidden')
+        return
+    }
+
+    const mediaViewer = new MediaViewer(assets)
+    const container = resultBody.querySelector('.media-container')
+    const leftArrow = resultBody.querySelector('.media-container__nav--left')
+    const rightArrow = resultBody.querySelector('.media-container__nav--right')
+    const mediaName = resultBody.querySelector('.media__name')
+    const counter = resultBody.querySelector('.media__counter')
+    const imageEl = resultBody.querySelector('img')
+    const sourceEl = resultBody.querySelector('source')
+    const videoEl = resultBody.querySelector('video')
+
+    const setImg = (media, index) => {
+        if (media?.format_type === 'image') {
+            imageEl.src = media.path
+
+            imageEl.classList.remove('hidden')
+            videoEl.classList.add('hidden')
+        } else if (media?.format_type === 'video') {
+            sourceEl.src = media.path
+
+            videoEl.classList.remove('hidden')
+            imageEl.classList.add('hidden')
+        }
+
+        mediaName.innerText = media?.name
+        counter.innerText = `${index + 1} / ${assets.length}`
+    }
+    setImg(mediaViewer.activeFile, mediaViewer.currentIndex)
+
+    const moveLeft = () => {
+        const [media, index] = mediaViewer.prevActive()
+        setImg(media, index)
+    }
+    const doRight = () => {
+        const [media, index] = mediaViewer.nextActive()
+        setImg(media, index)
+    }
+    const openImg = () => {
+        window.open(mediaViewer.activeFile.path, '_blank')
+    }
+    if (assets.length === 1) {
+        container.classList.add('media-container--fullscreen')
+    } else {
+        leftArrow.addEventListener('click', moveLeft)
+        rightArrow.addEventListener('click', doRight)
+    }
+    imageEl.addEventListener('click', openImg)
+}
+
+module.exports = {
+    setup,
+}
+
+},{}],7:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const storageModule = require('./storage.js')
+
+const genericSort = (list, key, ascending, customOrder) => {
+    let sorted
+    if (customOrder) {
+        sorted = list.sort((a, b) => {
+            const aValue = a.result.toLowerCase()
+            const bValue = b.result.toLowerCase()
+
+            const aIndex = customOrder.findIndex((item) => item.toLowerCase() === aValue)
+            const bIndex = customOrder.findIndex((item) => item.toLowerCase() === bValue)
+
+            // Compare the indices to determine the sort order
+            return aIndex - bIndex
+        })
+    } else {
+        sorted = list.sort((a, b) => a[key] === b[key] ? 0 : a[key] > b[key] ? 1 : -1)
+    }
+
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const durationSort = (list, ascending) => {
+    const parseDuration = (duration) => {
+        if (duration.includes(':')) {
+            // If it's in the format "HH:mm:ss"
+            const [hours, minutes, seconds] = duration.split(':').map(Number)
+            return (hours * 3600 + minutes * 60 + seconds) * 1000
+        } else {
+            // If it's in the format "nnn ms"
+            return parseInt(duration)
+        }
+    }
+    const sorted = list.sort((a, b) => parseDuration(a['duration']) - parseDuration(b['duration']))
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const doInitSort = () => {
+    const type = storageModule.getSort(manager.initialSort)
+    const ascending = storageModule.getSortDirection()
+    const list = manager.testSubset
+    const initialOrder = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed', 'Skipped', 'Passed']
+
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    if (type?.toLowerCase() === 'original') {
+        manager.setRender(list)
+    } else {
+        let sortedList
+        switch (type) {
+        case 'duration':
+            sortedList = durationSort(list, ascending)
+            break
+        case 'result':
+            sortedList = genericSort(list, type, ascending, initialOrder)
+            break
+        default:
+            sortedList = genericSort(list, type, ascending)
+            break
+        }
+        manager.setRender(sortedList)
+    }
+}
+
+const doSort = (type, skipDirection) => {
+    const newSortType = storageModule.getSort(manager.initialSort) !== type
+    const currentAsc = storageModule.getSortDirection()
+    let ascending
+    if (skipDirection) {
+        ascending = currentAsc
+    } else {
+        ascending = newSortType ? false : !currentAsc
+    }
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    const list = manager.testSubset
+    const sortedList = type === 'duration' ? durationSort(list, ascending) : genericSort(list, type, ascending)
+    manager.setRender(sortedList)
+}
+
+module.exports = {
+    doInitSort,
+    doSort,
+}
+
+},{"./datamanager.js":1,"./storage.js":8}],8:[function(require,module,exports){
+const possibleFilters = [
+    'passed',
+    'skipped',
+    'failed',
+    'error',
+    'xfailed',
+    'xpassed',
+    'rerun',
+]
+
+const getVisible = () => {
+    const url = new URL(window.location.href)
+    const settings = new URLSearchParams(url.search).get('visible')
+    const lower = (item) => {
+        const lowerItem = item.toLowerCase()
+        if (possibleFilters.includes(lowerItem)) {
+            return lowerItem
+        }
+        return null
+    }
+    return settings === null ?
+        possibleFilters :
+        [...new Set(settings?.split(',').map(lower).filter((item) => item))]
+}
+
+const hideCategory = (categoryToHide) => {
+    const url = new URL(window.location.href)
+    const visibleParams = new URLSearchParams(url.search).get('visible')
+    const currentVisible = visibleParams ? visibleParams.split(',') : [...possibleFilters]
+    const settings = [...new Set(currentVisible)].filter((f) => f !== categoryToHide).join(',')
+
+    url.searchParams.set('visible', settings)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const showCategory = (categoryToShow) => {
+    if (typeof window === 'undefined') {
+        return
+    }
+    const url = new URL(window.location.href)
+    const currentVisible = new URLSearchParams(url.search).get('visible')?.split(',').filter(Boolean) ||
+        [...possibleFilters]
+    const settings = [...new Set([categoryToShow, ...currentVisible])]
+    const noFilter = possibleFilters.length === settings.length || !settings.length
+
+    noFilter ? url.searchParams.delete('visible') : url.searchParams.set('visible', settings.join(','))
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getSort = (initialSort) => {
+    const url = new URL(window.location.href)
+    let sort = new URLSearchParams(url.search).get('sort')
+    if (!sort) {
+        sort = initialSort || 'result'
+    }
+    return sort
+}
+
+const setSort = (type) => {
+    const url = new URL(window.location.href)
+    url.searchParams.set('sort', type)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getCollapsedCategory = (renderCollapsed) => {
+    let categories
+    if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href)
+        const collapsedItems = new URLSearchParams(url.search).get('collapsed')
+        switch (true) {
+        case !renderCollapsed && collapsedItems === null:
+            categories = ['passed']
+            break
+        case collapsedItems?.length === 0 || /^["']{2}$/.test(collapsedItems):
+            categories = []
+            break
+        case /^all$/.test(collapsedItems) || collapsedItems === null && /^all$/.test(renderCollapsed):
+            categories = [...possibleFilters]
+            break
+        default:
+            categories = collapsedItems?.split(',').map((item) => item.toLowerCase()) || renderCollapsed
+            break
+        }
+    } else {
+        categories = []
+    }
+    return categories
+}
+
+const getSortDirection = () => JSON.parse(sessionStorage.getItem('sortAsc')) || false
+const setSortDirection = (ascending) => sessionStorage.setItem('sortAsc', ascending)
+
+const getCollapsedIds = () => JSON.parse(sessionStorage.getItem('collapsedIds')) || []
+const setCollapsedIds = (list) => sessionStorage.setItem('collapsedIds', JSON.stringify(list))
+
+module.exports = {
+    getVisible,
+    hideCategory,
+    showCategory,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    setSort,
+    getSortDirection,
+    setSortDirection,
+    getCollapsedCategory,
+    possibleFilters,
+}
+
+},{}]},{},[4]);
+    </script>
+  </footer>
+</html>
