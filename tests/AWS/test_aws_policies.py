@@ -127,8 +127,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     # An error occurred (AccessDenied) when calling the ListUsers operation:
     # User: arn:aws:iam::... is not authorized to perform: iam:ListUsers on resource: arn:aws:iam::...
     # because no identity-based policy allows the iam:ListUsers action
-
-    sleep(5)
+    sleep(10)
 
     logger.info("Try to list users")
     action_output = user_aws_client.list_users()
