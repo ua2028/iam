@@ -70,7 +70,7 @@ jobs:
         mkdir -p public2/assets
         docker run -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} --network="host" --name=runner test-runner
         docker wait runner
-        docker cp runner:/app/report.html public2/index.html2
+        docker cp runner:/app/report.html public2/index.html
         docker cp runner:/app/assets/style.css public2/assets/style.css
         echo "Files copied"
 
@@ -79,7 +79,7 @@ jobs:
         echo "Current working directory:"
         pwd
         echo "Listing all files and directories:"
-        ls -al
+        ls public2 -al
 
     - name: Upload Test Reports
       uses: actions/upload-artifact@v3
