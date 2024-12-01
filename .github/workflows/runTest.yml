@@ -86,5 +86,4 @@ jobs:
       with:
         name: report
         path: |
-          public2/report.html
-          public2/assets/style.css
+          public2
