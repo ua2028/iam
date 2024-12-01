@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from botocore.exceptions import NoCredentialsError
 load_dotenv()
 
+
 import logging
 
 logging.basicConfig(level=logging.INFO)

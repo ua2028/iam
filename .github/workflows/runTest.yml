@@ -34,7 +34,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-        pytest pytest -s --html=report.html
+        pytest -s --html=report.html
       continue-on-error: true
 
     - name: Upload Test Reports
