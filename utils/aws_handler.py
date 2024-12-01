@@ -55,6 +55,7 @@ class AWSHandler:
             )
 
         # create clients for different services once we have auth
+        assert self.session is not None, "AWS session for user is not initialized."
         self.iam = self.session.client('iam')
 
     def load_policies_from_files(self):
