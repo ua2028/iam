@@ -21,6 +21,9 @@ jobs:
       with:
         python-version: '3.11'
 
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/iam/iam" >> $GITHUB_ENV
+
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
