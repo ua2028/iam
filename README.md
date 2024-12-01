@@ -41,13 +41,10 @@ poetry export -f requirements.txt --output requirements.txt
 ### Run docker locally
 
 docker build -t test-runner .
-docker run --rm -it -v "$(pwd)/allure-report:/app/allure-report" -v "$(pwd)/allure-results:/app/allure-results" -e AWS_ACCESS_KEY_ID=ACCESS_KEY -e AWS_SECRET_ACCESS_KEY=SECRET_KEY --network="host" test-runner
+docker run -e AWS_ACCESS_KEY_ID=ACCESS_KEY -e AWS_SECRET_ACCESS_KEY=SECRET_KEY --name=runner --network="host" test-runner
 
 ### Explanation:
---rm: Automatically removes the container after it exits.
--it: Runs the container interactively, useful for debugging.
 -e AWS_ACCESS_KEY_ID and -e AWS_SECRET_ACCESS_KEY: Pass environment variables to the container.
--v "$(pwd)/allure-report:/app/allure-report": Mounts a local directory to the container's /app/allure-report directory so the generated report can be accessed on your host machine.
 
 
 
