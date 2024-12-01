@@ -36,7 +36,7 @@ class AWSHandler:
             if self.aws_access_key_id and self.aws_secret_access_key:
                 logger.info(f"name: {self.name}, self.aws_access_key_id: {self.aws_access_key_id}")
                 logger.info(f"name: {self.name}, self.aws_secret_access_key: {self.aws_secret_access_key}")
-                logger.info(f"name: {self.name}, AWS credentials found in environment variables.")
+                logger.info(f"name: {self.name}, AWS credentials found.")
                 self.session = boto3.Session(
                     aws_access_key_id=self.aws_access_key_id,
                     aws_secret_access_key=self.aws_secret_access_key
@@ -251,7 +251,7 @@ class AWSHandler:
         Returns:
         dict: The details of the created user or an error message.
         """
-        sleep(0.1)
+        sleep(10.1)
 
         if not self.iam:
             logger.info(f"name: {self.name}, IAM client is not initialized. Please validate credentials first.")
@@ -293,6 +293,10 @@ class AWSHandler:
             response = self.iam.create_access_key(UserName=user_name)
             access_key = response.get("AccessKey", {})
             logger.info(f"name: {self.name}, Successfully created access credentials for user: {user_name}")
+
+            # https://stackoverflow.com/questions/54214786/boto3-iam-user-creation-failing-with-invalidclienttokenid-the-security-token-i
+            sleep(10)
+
             return {
                 "AccessKeyId": access_key.get("AccessKeyId"),
                 "SecretAccessKey": access_key.get("SecretAccessKey")
