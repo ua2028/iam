@@ -43,7 +43,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     action_output = user_aws_client.create_iam_user("lolz")
 
     logger.info("Assert user is not allowed to create new user")
-    assert "Error" in action_output, "Key 'Error' not found"
+    assert "Error" in action_output, f"Key 'Error' not found, output: {action_output}"
     assert 'AccessDenied' in action_output["Error"]
     assert 'not authorized to perform: iam:CreateUser' in action_output["Error"]
 
@@ -57,7 +57,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     action_output = user_aws_client.delete_iam_user_by_user_name(random_name)
 
     logger.info("Assert user is not allowed to delete user")
-    assert "Error" in action_output, "Key 'Error' not found"
+    assert "Error" in action_output, f"Key 'Error' not found, output: {action_output}"
     assert 'AccessDenied' in action_output["Error"]
     assert 'not authorized to perform: iam:DeleteUser' in action_output["Error"]
 
@@ -65,7 +65,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     action_output = user_aws_client.update_user(random_name, "lolz")
 
     logger.info("Assert user is not allowed to update user ")
-    assert "Error" in action_output, "Key 'Error' not found"
+    assert "Error" in action_output, f"Key 'Error' not found, output: {action_output}"
     assert 'AccessDenied' in action_output["Error"]
     assert 'not authorized to perform: iam:UpdateUser' in action_output["Error"]
 
@@ -73,7 +73,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     action_output = user_aws_client.attach_user_policy(random_name, policy_arn)
 
     logger.info("Assert user is not allowed to attach a policy to user")
-    assert "Error" in action_output, "Key 'Error' not found"
+    assert "Error" in action_output, f"Key 'Error' not found, output: {action_output}"
     assert 'AccessDenied' in action_output["Error"]
     assert 'not authorized to perform: iam:AttachUserPolicy' in action_output["Error"]
 
@@ -81,7 +81,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     action_output = user_aws_client.detach_user_policy(user_aws_client.name, policy_arn)
 
     logger.info("Assert user is not allowed to detach user policy")
-    assert "Error" in action_output, "Key 'Error' not found"
+    assert "Error" in action_output, f"Key 'Error' not found, output: {action_output}"
     assert 'AccessDenied' in action_output["Error"]
     assert 'not authorized to perform: iam:DetachUserPolicy' in action_output["Error"]
 
@@ -89,7 +89,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     action_output = user_aws_client.put_user_inline_policy(user_aws_client.name, policy_name, policy)
 
     logger.info("Assert user is not allowed to put user policy")
-    assert "Error" in action_output, "Key 'Error' not found"
+    assert "Error" in action_output, f"Key 'Error' not found, output: {action_output}"
     assert 'AccessDenied' in action_output["Error"]
     assert 'not authorized to perform: iam:PutUserPolicy' in action_output["Error"]
 
@@ -97,7 +97,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     action_output = user_aws_client.delete_user_policy(user_aws_client.name, policy_name)
 
     logger.info("Assert user is not allowed to delete user policy")
-    assert "Error" in action_output, "Key 'Error' not found"
+    assert "Error" in action_output, f"Key 'Error' not found, output: {action_output}"
     assert 'AccessDenied' in action_output["Error"]
     assert 'not authorized to perform: iam:DeleteUserPolicy' in action_output["Error"]
 
@@ -105,7 +105,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     action_output = user_aws_client.add_user_to_group(random_name, group_name)
 
     logger.info("Assert user is not allowed to add a user to a group")
-    assert "Error" in action_output, "Key 'Error' not found"
+    assert "Error" in action_output, f"Key 'Error' not found, output: {action_output}"
     assert 'AccessDenied' in action_output["Error"]
     assert 'not authorized to perform: iam:AddUserToGroup' in action_output["Error"]
 
@@ -116,7 +116,7 @@ def test_limiting_policy(admin_aws_client, user_aws_client):
     action_output = user_aws_client.remove_user_from_group(random_name, group_name)
 
     logger.info("Assert user is not allowed to remove a user from a group")
-    assert "Error" in action_output, "Key 'Error' not found"
+    assert "Error" in action_output, f"Key 'Error' not found, output: {action_output}"
     assert 'AccessDenied' in action_output["Error"]
     assert 'not authorized to perform: iam:RemoveUserFromGroup' in action_output["Error"]
 
