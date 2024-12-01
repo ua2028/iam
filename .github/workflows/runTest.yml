@@ -49,7 +49,7 @@ jobs:
       run: |
         mkdir -p public
         mkdir -p public/assets
-        mv report.html public/
+        mv report.html public/index.html
         mv assets/style.css public/assets/
 
     - name: Deploy To Github Pages
