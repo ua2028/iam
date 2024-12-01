@@ -36,8 +36,8 @@ def user_aws_client(request):
     secret_key = credentials["SecretAccessKey"]
     logger.info(f"---------------------- access_key: {access_key}")
     logger.info(f"---------------------- secret_key: {secret_key}")
-    aws_handler = AWSHandler(access_key, secret_key, True )
-    aws_handler.name = test_user_name
+    aws_handler = AWSHandler(test_user_name, access_key, secret_key, True )
+    # aws_handler.name = test_user_name
     # adding sleep because of flaky issue of getting from AWS error of invalid token when starting
     # actions in the test
     sleep(5)

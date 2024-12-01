@@ -9,7 +9,7 @@ load_dotenv()
 
 
 class AWSHandler:
-    def __init__(self, aws_access_key=False, aws_secret_key=False, auto_login=False):
+    def __init__(self, name="ADMIN", aws_access_key=False, aws_secret_key=False, auto_login=False):
         if not aws_access_key:
             logger.info(f"No aws_access_key, checking from ENV")
             aws_access_key = os.getenv("AWS_ACCESS_KEY_ID")
@@ -21,7 +21,7 @@ class AWSHandler:
         self.profile_name = os.getenv("AWS_LOCAL_PROFILE")
         self.session = None
         self.iam = None
-        self.name = "ADMIN"
+        self.name = name
         self.path_to_policies = './policies'
         self.policies = {}
         if auto_login:
