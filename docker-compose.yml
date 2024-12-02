@@ -10,4 +10,4 @@ services:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
     network_mode: "host"
-    command: "pytest --html=report.html"
+    command: "pytest -s --html=report.html"
