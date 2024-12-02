@@ -13,43 +13,66 @@ The following instructions guide you through the setup process and running the t
 
 install Poetry by following the instructions on the [official website](https://python-poetry.org/docs/#installation).
 
-### Setup
+# Setup
 
-# Activate the Poetry environment
+### Activate the Poetry environment
 poetry env use python3.11
 
-# Install dependencies
+### Install dependencies
 poetry install --no-root
 
-# Start shell
+### Start shell
 poetry shell
 
-# Set your AWS credetials as a profile
-Open  ~/.aws/credentials
+### Set your AWS credetials as a profile
+Open  
+```commandline
+~/.aws/credentials
+```
 
-Use this format:
+Paste your credentials using this format to create an AWS profile:
+```commandline
 [qa]
 aws_access_key_id=YOUR_ACCESS_KEY
 aws_secret_access_key=YOUR_SECRET_KEY
+```
 
-# Run test:
-pytest -s --alluredir=allure-results
-
-# To create requirements.txt:
-poetry export -f requirements.txt --output requirements.txt
-
-### Run docker locally
-
-docker build -t test-runner .
-docker run -e AWS_ACCESS_KEY_ID=ACCESS_KEY -e AWS_SECRET_ACCESS_KEY=SECRET_KEY --name=runner --network="host" test-runner
-
-### Explanation:
--e AWS_ACCESS_KEY_ID and -e AWS_SECRET_ACCESS_KEY: Pass environment variables to the container.
-
-
-
-first run test for UI login to collect the api key and set it
+or set them as ENV variables:
 ```commandline
-pytest -s -k "TEST_NAME"
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+```
 
+### Run test:
+```commandline
+pytest -s --alluredir=allure-results
+```
+
+### To create requirements.txt:
+If you need to update requirements.txt
+```commandline
+poetry export -f requirements.txt --output requirements.txt
+```
+
+### Run test locally and generate report
+
+```commandline
+pytest -s --html=report.html
+```
+
+
+# Run docker locally
+### Build
+```shell
+docker build -t test-runner .
+```
+
+### Run
+```shell
+docker run -e AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY -e AWS_SECRET_ACCESS_KEY=YOUR_SECRET --name=runner --network="host" test-runner
+```
+
+### Run with docker compose:
+```commandline
+export AWS_SECRET_ACCESS_KEY=YOUR_ACCESS_KEY AWS_SECRET_ACCESS_KEY=YOUR_SECRET && docker compose up --build
 ```
